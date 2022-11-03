@@ -18,18 +18,18 @@ class AuthorController extends Controller
         if ($author != '[]') {
             return response()->json(
                 [
-                    'success' => 201,
+                    'success' => 200,
                     'data' => $author,
                 ],
-                201
+                200
             );
         } else {
             return response()->json(
                 [
-                    'success' => 201,
+                    'success' => 200,
                     'message' => 'Data Kosong',
                 ],
-                201
+                200
             );
         }
     }
@@ -148,9 +148,7 @@ class AuthorController extends Controller
             $author->noHP = $request->noHP
                 ? $request->noHP
                 : $author->noHP;
-            // $author->noHp = $request->noHp
-            //     ? $request->noHp
-            //     : $author->noHp;
+
             $author->save();
             return response()->json(
                 [
